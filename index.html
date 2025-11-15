@@ -4,10 +4,59 @@
   <meta charset="UTF-8" />
   <title>SongBid Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Instant redirect to the real app UI -->
-  <meta http-equiv="refresh" content="0; url=/app/index.html" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <p>If you are not redirected, <a href="/app/index.html">click here to open SongBid Studio</a>.</p>
+  <div class="app">
+    <header class="app-header">
+      <h1>SongBid Studio</h1>
+      <p>Turn AI ideas into your own song.</p>
+    </header>
+
+    <section class="panel">
+      <h2>1. Load Your Track</h2>
+      <p class="hint">
+        Upload an instrumental or AI-generated song and sing over it.
+      </p>
+
+      <div class="field-group">
+        <label for="audioFile">Upload audio file</label>
+        <input type="file" id="audioFile" accept="audio/*" />
+      </div>
+
+      <audio id="player" controls></audio>
+    </section>
+
+    <section class="panel">
+      <h2>2. Lyrics / Notes</h2>
+      <p class="hint">
+        Optional: paste your lyrics or notes here so you can follow along while you sing.
+      </p>
+      <textarea id="lyricsBox" placeholder="Paste lyrics or notes here..."></textarea>
+    </section>
+
+    <section class="panel">
+      <h2>3. Record Your Voice</h2>
+      <p class="hint">
+        Press play on the track, then hit "Start Recording" and perform. When you're done,
+        stop and download your vocal.
+      </p>
+
+      <div class="controls">
+        <button id="startRecBtn">🎙 Start Recording</button>
+        <button id="stopRecBtn" disabled>⏹ Stop Recording</button>
+      </div>
+
+      <p id="recStatus" class="status">Not recording.</p>
+
+      <div id="recordingOutput" class="recording-output"></div>
+    </section>
+
+    <footer class="app-footer">
+      <p>SongBid MVP • Browser demo</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

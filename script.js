@@ -33,9 +33,14 @@ async function startRecording() {
       }
     };
 
-    mediaRecorder.onstop = () => {
-      const blob = new Blob(recordedChunks, { type: 'audio/webm' });
-      const url = URL.createObjectURL(blob);
+    // Use WAV so iPhone/Android can download the file properly
+const blob = new Blob(recordedChunks, { type: 'audio/wav' });
+const url = URL.createObjectURL(blob);
+
+...
+
+// Save as .wav (universal)
+downloadLink.download = 'songbid-vocal.wav';
 
       recordingOutput.innerHTML = '';
       const audioEl = document.createElement('audio');
